@@ -1,5 +1,3 @@
-pragma solidity ^0.4.24;
-
 interface MyJumbo {
     enum States {Normal, Hunger, Hangry}
     enum Colors {Red, Green, Blue, Black, White, Rainbow}
