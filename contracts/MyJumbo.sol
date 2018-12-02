@@ -71,7 +71,14 @@ contract MyJumbo {
         }
     }
     
-    /*
-    function getItems() external returns(string memory hash);
-    */
+    mapping(bytes32 => string) itemIds;
+        
+    function setItemHash(string memory hash) public returns(bytes32 itemId) {
+        itemIds[keccak256(bytes(hash))] = hash;
+        return keccak256(bytes(hash));
+    }
+    
+    function getItemHash(bytes32 itemId) public returns(string memory hash) {
+        return itemIds[itemId];
+    }
 }
