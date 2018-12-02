@@ -51,3 +51,5 @@ typings/
 
 # Etc
 .DS_Store
+
+ipfs/
