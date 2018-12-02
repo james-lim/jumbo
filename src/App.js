@@ -1,3 +1,4 @@
+import ipfsClient from 'ipfs-http-client'
 import React, { Component } from 'react'
 import { Route } from 'react-router'
 import HomeContainer from './pages/home/HomeContainer'
@@ -12,12 +13,16 @@ import RegisterSymbolContainer
   from './pages/registerSymbol/RegisterSymbolContainer'
 
 class App extends Component {
+  componentWillMount () {
+    window.ipfsClient = ipfsClient('localhost', '5001', { protocol: 'http' })
+  }
+
   render () {
     return (
       <div className={'App'}>
         <Route exact path="/" component={HomeContainer}/>
         <Route exact path="/my-jumbo" component={MyJumboContainer}/>
-        <Route exact path="/detail" component={DetailContainer}/>
+        <Route path="/detail/:address" component={DetailContainer}/>
         <Route exact path="/pick-jumbo" component={PickJumboContainer}/>
         <Route exact path="/pick-symbol" component={PickSymbolContainer}/>
         <Route exact path="/register" component={RegisterContainer}/>

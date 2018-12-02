@@ -2,15 +2,16 @@ import React from 'react'
 import Wrapper from '../../components/Wrapper'
 import SimpleLayout from '../../layouts/SimpleLayout'
 
-const Detail = () => {
+const Detail = ({address}) => {
   return (
     <SimpleLayout>
+      <h1>{address}</h1>
       <Wrapper>
-        <div class="container">
-          <div class="row">
-            <section class="col-6 col-12-narrower feature">
-              <div class="image-wrapper first">
-                <a href="#" class="image featured first"><img
+        <div className="container">
+          <div className="row">
+            <section className="col-6 col-12-narrower feature">
+              <div className="image-wrapper first">
+                <a href="#" className="image featured first"><img
                   src="images/pic01.jpg" alt=""/></a>
               </div>
               <header>
@@ -22,13 +23,13 @@ const Detail = () => {
                 sem sit dolor neque semper magna. Lorem ipsum dolor sit amet
                 consectetur et sed
                 adipiscing elit. Curabitur vel sem sit.</p>
-              <ul class="actions">
-                <li><a href="#" class="button">Elevate my awareness</a></li>
+              <ul className="actions">
+                <li><a href="#" className="button">Elevate my awareness</a></li>
               </ul>
             </section>
-            <section class="col-6 col-12-narrower feature">
-              <div class="image-wrapper">
-                <a href="#" class="image featured"><img src="images/pic02.jpg"
+            <section className="col-6 col-12-narrower feature">
+              <div className="image-wrapper">
+                <a href="#" className="image featured"><img src="images/pic02.jpg"
                                                         alt=""/></a>
               </div>
               <header>
@@ -40,8 +41,8 @@ const Detail = () => {
                 sem sit dolor neque semper magna. Lorem ipsum dolor sit amet
                 consectetur et sed
                 adipiscing elit. Curabitur vel sem sit.</p>
-              <ul class="actions">
-                <li><a href="#" class="button">Elevate my awareness</a></li>
+              <ul className="actions">
+                <li><a href="#" className="button">Elevate my awareness</a></li>
               </ul>
             </section>
           </div>

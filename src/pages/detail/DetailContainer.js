@@ -1,14 +1,21 @@
 import { drizzleConnect } from 'drizzle-react'
 import Detail from './Detail'
+import { fetchRestaurant } from '../../fetches/fetchRestaurant'
 
 // May still need this even with data function to refresh component on updates for this contract.
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     accounts: state.accounts,
-    drizzleStatus: state.drizzleStatus
+    drizzleStatus: state.drizzleStatus,
+    address:  ownProps.match.params.address
   }
-};
+}
 
-const DetailContainer = drizzleConnect(Detail, mapStateToProps);
+const mapDispatchToProps = (dispatch) => ({
+  fetchRestaurant: drizzle => dispatch(fetchRestaurant(drizzle))
+})
 
-export default DetailContainer;
+
+const DetailContainer = drizzleConnect(Detail, mapStateToProps)
+
+export default DetailContainer

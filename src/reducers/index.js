@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import { drizzleReducers } from 'drizzle'
-import tree from './tree';
+import restaurant from './restaurant';
 
 const mainReducer = combineReducers({
   routing: routerReducer,
-  tree,
+  restaurant,
   ...drizzleReducers
 })
 

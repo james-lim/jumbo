@@ -5,10 +5,11 @@ import PickJumbo from './PickJumbo'
 const mapStateToProps = state => {
   return {
     accounts: state.accounts,
-    drizzleStatus: state.drizzleStatus
+    drizzleStatus: state.drizzleStatus,
+    items: ['sample data 1', 'sample data 2', 'sample data 3'],
   }
-};
+}
 
-const PickJumboContainer = drizzleConnect(PickJumbo, mapStateToProps);
+const PickJumboContainer = drizzleConnect(PickJumbo, mapStateToProps)
 
-export default PickJumboContainer;
+export default PickJumboContainer

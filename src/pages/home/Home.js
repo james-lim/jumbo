@@ -1,52 +1,19 @@
 import React from 'react'
 import JumboLayout from '../../layouts/JumboLayout'
-import Wrapper from '../../components/Wrapper'
+import StoreCarousel from '../../components/StoreCarousel'
 
-const Home = () => {
+
+
+const Home = ({ threeJumbos, twoJumbos, oneJumbos, korean, japanese, chinese }) => {
   return (
     <JumboLayout>
-      <Wrapper>
-        <div class="container">
-          <div class="row">
-            <section class="col-6 col-12-narrower feature">
-              <div class="image-wrapper first">
-                <a href="#" class="image featured first"><img
-                  src="images/pic01.jpg" alt=""/></a>
-              </div>
-              <header>
-                <h2>Semper magna neque vel<br/>
-                  adipiscing curabitur</h2>
-              </header>
-              <p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit.
-                Curabitur vel
-                sem sit dolor neque semper magna. Lorem ipsum dolor sit amet
-                consectetur et sed
-                adipiscing elit. Curabitur vel sem sit.</p>
-              <ul class="actions">
-                <li><a href="#" class="button">Elevate my awareness</a></li>
-              </ul>
-            </section>
-            <section class="col-6 col-12-narrower feature">
-              <div class="image-wrapper">
-                <a href="#" class="image featured"><img src="images/pic02.jpg"
-                                                        alt=""/></a>
-              </div>
-              <header>
-                <h2>Amet lorem ipsum dolor<br/>
-                  sit consequat magna</h2>
-              </header>
-              <p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit.
-                Curabitur vel
-                sem sit dolor neque semper magna. Lorem ipsum dolor sit amet
-                consectetur et sed
-                adipiscing elit. Curabitur vel sem sit.</p>
-              <ul class="actions">
-                <li><a href="#" class="button">Elevate my awareness</a></li>
-              </ul>
-            </section>
-          </div>
-        </div>
-      </Wrapper>
+      <StoreCarousel name={'3 Jumbo restaurants'} restaurants={threeJumbos}/>
+      <StoreCarousel name={'2 Jumbo restaurants'} restaurants={twoJumbos}/>
+      <StoreCarousel name={'1 Jumbo restaurants'} restaurants={oneJumbos}/>
+      <StoreCarousel name={'Korean restaurants'} restaurants={oneJumbos}/>
+      <StoreCarousel name={'Japanese restaurants'} restaurants={korean}/>
+      <StoreCarousel name={'Chinese restaurants'} restaurants={japanese}/>
+      <StoreCarousel name={'Western restaurants'} restaurants={chinese}/>
     </JumboLayout>
   )
 }

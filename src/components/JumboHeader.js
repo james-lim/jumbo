@@ -1,25 +1,42 @@
 import React, { Component } from 'react'
 import Header from './Header'
+import styled from 'styled-components'
+
+const Styler = styled.div`
+#header-wrapper {
+width:100%;
+  height:500px;
+  background: url('images/bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+}
+`
+const Jumbo = styled.div`
+#hero {
+width:100%;
+  height:500px;
+  background: url('images/jumbo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:300px;
+  background-attachment: fixed;
+}
+`
 
 export default class JumboHeader extends Component {
   render () {
     return (
-      <Header>
-        <section id="hero" class="container">
-          <header>
-            <h2>Telephasic is a responsive
-              <br/>
-              site template by <a href="http://html5up.net">HTML5 UP</a></h2>
-          </header>
-          <p>Designed and built by <a href="http://twitter.com/ajlkn">AJ</a> and
-            released for free under
-            <br/>
-            the <a href="http://html5up.net/license">Creative Commons
-              Attribution 3.0 license</a>.</p>
-          <ul class="actions">
-            <li><a href="#" class="button">Get this party started</a></li>
-          </ul>
-        </section>
-      </Header>)
+      <Styler>
+        <Header>
+          <Jumbo>
+            <section id="hero" className="container">
+
+            </section>
+          </Jumbo>
+        </Header>
+      </Styler>
+    )
   }
 }
