@@ -53,10 +53,13 @@ contract MyJumbo {
         );
     }
     
+    function equipItem(bytes32 itemId) public {
+        myjumbo[msg.sender].items.push(itemId);
+    }
+    
+    
     /*
-    function equipItem(bytes32 itemId) external;
     function removeItem(bytes32 itemId) external;
-    // function getItems() external returns(bytes32[] lists);
     function getItems() external returns(bytes32[] memory lists);
     */
 }
