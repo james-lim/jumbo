@@ -1,4 +1,4 @@
-interface MyJumbo {
+contract MyJumbo {
     enum States {Normal, Hunger, Hangry}
     enum Colors {Red, Green, Blue, Black, White, Rainbow}
     
