@@ -17,9 +17,9 @@ contract JumboGuide {
         int256 score;
     }
     
-    // hash(Restaurant) => Review[]
-    mapping(bytes32 => Review[]) reviews;    
+    mapping(address => Review[]) reviews;    
     mapping(address => Restaurant) rests;
+    
     mapping(uint256 => address) addressCount;
     uint256 count = 0;
     
@@ -79,18 +79,54 @@ contract JumboGuide {
         return res;
     }
         
+    function voteRestaurant(address store, bool upvote) public {
+        if(upvote){
+            rests[store].score += 5;
+        }
+        else{
+            rests[store].score -= 5;
+        }
+    }
+    
+    function voteRestaurantWithReview(
+        address store,
+        int256 score,
+        string memory _image,
+        string memory _body
+    ) public {
+        rests[store].score += score;
+        reviews[store].push(Review(msg.sender, _image, _body, score));
+        
+    }
+    
+    function voteReview(address store, uint256 numReview, bool upvote) public {
+        if(upvote){
+            reviews[store][numReview].score += 5;
+        }
+        else{
+            reviews[store][numReview].score -= 5;
+        }
+    }
+    
     /*
-    function voteRestaurant(address store, bool upvote) external;
+    function getReviews(address store)
+    public
+    returns(Review[] memory reviews) {
+        return reviews[store];
+    }
+    */
     
-    function voteRestaurantWithReview(address store, bytes32 hash, int256 score) external;
-    function voteReview(uint256 reviewId, bool upvote) external;
-    
-    function getReviews(address store) external returns(uint256[] memory);
-    function getReview(uint256 reviewId) external returns(
+    function getReview(address store, uint256 numReview) public returns(
         address writer,
-        bytes32 image,
+        string memory image,
         string memory body,
         int256 score
+    ){
+        return (
+            reviews[store][numReview].writer,
+            reviews[store][numReview].image,
+            reviews[store][numReview].body,
+            reviews[store][numReview].score
         );
-    */
+    }
 }
