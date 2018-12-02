@@ -108,13 +108,11 @@ contract JumboGuide {
         }
     }
     
-    /*
-    function getReviews(address store)
+    function getReviewNum(address store)
     public
-    returns(Review[] memory reviews) {
-        return reviews[store];
+    returns(uint256 num) {
+        return reviews[store].length;
     }
-    */
     
     function getReview(address store, uint256 numReview) public returns(
         address writer,
