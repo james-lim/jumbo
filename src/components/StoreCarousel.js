@@ -5,21 +5,20 @@ import Wrapper from './Wrapper'
 
 const dataToTestaurant = (restaurant) => {
   return (
-    <div>
+    <div key={restaurant.name}>
       {/*<section className="col-3 col-12-narrower feature">*/}
       <div className="image-wrapper">
         <a href="#" className="image featured">
           <img
-            src="https://images.unsplash.com/photo-1543654796-9472cd7ef9bf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c226bb573aff6b762dc75a7f01ce9db1&auto=format&fit=crop&w=1950&q=80"
+            src={restaurant.image}
             alt=""/>
         </a>
       </div>
       <header>
-        <h3>Dolor sit consequat magna</h3>
+        <h3>{restaurant.name}</h3>
       </header>
-      <p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit.
-        Curabitur
-        vel sem sit dolor neque semper magna lorem ipsum.</p>
+      <p>{restaurant.description}</p>
+      <p>{restaurant.location}</p>
       {/*</section>*/}
     </div>
   )
@@ -35,13 +34,13 @@ export default class StoreCarousel extends React.Component {
     }
     return (
       <Wrapper>
-        <section class="container">
-          <header class="major">
+        <section className="container">
+          <header className="major">
             <h2 style={{ textAlign: 'left' }}>{this.props.name}</h2>
           </header>
           <Slider {...settings}>
-            <br/>
             {this.props.restaurants.map(dataToTestaurant)}
+            <br/>
           </Slider>
         </section>
       </Wrapper>

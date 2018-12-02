@@ -10,7 +10,7 @@ export default class JumboLayout extends Component {
   render () {
     return (
       <div>
-        <JumboHeader/>
+        <JumboHeader jumbo={this.props.jumbo}/>
         {this.props.children}
         <Footer/>
       </div>
