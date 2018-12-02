@@ -23,15 +23,14 @@ contract JumboGuide {
     mapping(uint256 => address) addressCount;
     uint256 count = 0;
     
-    Restaurant _tmp;
-    
     function registerRestaurant(
-        string _image,
+        string memory _image,
         string memory _name,
         string memory _location
         // Categories _category
     ) public {
-        Restaurant storage tmp = _tmp;
+        Restaurant storage tmp = rests[msg.sender];
+        addressCount[count++] = msg.sender;
         
         tmp.image = _image;
         tmp.name = _name;
@@ -39,23 +38,19 @@ contract JumboGuide {
         // tmp.category = _category;
         tmp.numJumbo = 0;
         tmp.score = 0;
-        
-        rests[msg.sender] = tmp;
-        addressCount[count++] = msg.sender;
     }
         
     function getRestaurant(address store)
     public
     returns(
-        string image,
+        string memory image,
         string memory name,
         string memory location,
         // Categories category,
         uint8 numJumbo,
         int256 score
     ) {
-        
-        Restaurant memory tmp = rests[store];
+        Restaurant storage tmp = rests[store];
         
         return (
             tmp.image,
@@ -66,8 +61,6 @@ contract JumboGuide {
             tmp.score
         );
     }
-        
-    address[] _res;    
     
     // function getRestaurants(Categories category) external returns(address[] memory){
     function getRestaurants(uint _numJumbo)
@@ -75,11 +68,11 @@ contract JumboGuide {
     returns(
         address[] memory lists
     ){
-        address[] storage res = _res;
+        address[] memory res = new address[](count);
         
         for(uint256 i=0; i<count; i++){
             if(rests[addressCount[i]].numJumbo == _numJumbo){
-                res.push(addressCount[i]);
+                res[i] = addressCount[i];
             }
         }
         
@@ -95,7 +88,7 @@ contract JumboGuide {
     function getReviews(address store) external returns(uint256[] memory);
     function getReview(uint256 reviewId) external returns(
         address writer,
-        string image,
+        bytes32 image,
         string memory body,
         int256 score
         );
