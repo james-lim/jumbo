@@ -3,13 +3,13 @@ contract JumboGuide {
     
     struct Review {
         address writer;
-        bytes32 image;
+        string image;
         string body;
         int256 score;
     }
     
     struct Restaurant {
-        bytes32 image;
+        string image;
         string name;
         string location;
         // Categories category;
@@ -26,7 +26,7 @@ contract JumboGuide {
     Restaurant _tmp;
     
     function registerRestaurant(
-        bytes32 _image,
+        string _image,
         string memory _name,
         string memory _location
         // Categories _category
@@ -47,7 +47,7 @@ contract JumboGuide {
     function getRestaurant(address store)
     public
     returns(
-        bytes32 image,
+        string image,
         string memory name,
         string memory location,
         // Categories category,
@@ -95,7 +95,7 @@ contract JumboGuide {
     function getReviews(address store) external returns(uint256[] memory);
     function getReview(uint256 reviewId) external returns(
         address writer,
-        bytes32 image,
+        string image,
         string memory body,
         int256 score
         );
