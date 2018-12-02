@@ -42,6 +42,7 @@ contract JumboGuide {
         
     function getRestaurant(address store)
     public
+    view
     returns(
         string memory image,
         string memory name,
@@ -65,6 +66,7 @@ contract JumboGuide {
     // function getRestaurants(Categories category) external returns(address[] memory){
     function getRestaurants(uint _numJumbo)
     public
+    view
     returns(
         address[] memory lists
     ){
