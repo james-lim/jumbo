@@ -57,9 +57,21 @@ contract MyJumbo {
         myjumbo[msg.sender].items.push(itemId);
     }
     
+    function removeItem(bytes32 itemId) public {
+        uint256 len = myjumbo[msg.sender].items.length;
+        for (uint256 i=0; i<len; i++){
+            if (myjumbo[msg.sender].items[i] == itemId){
+                for(uint256 j=i; j<len-1; j++) {
+                   myjumbo[msg.sender].items[j] = myjumbo[msg.sender].items[j+1];
+                }
+                delete myjumbo[msg.sender].items[len-1];
+                len--;
+                myjumbo[msg.sender].items.length--;
+            }
+        }
+    }
     
     /*
-    function removeItem(bytes32 itemId) external;
-    function getItems() external returns(bytes32[] memory lists);
+    function getItems() external returns(string memory hash);
     */
 }
